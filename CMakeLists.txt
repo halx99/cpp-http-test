@@ -25,8 +25,8 @@ include(cmake/CPM.cmake)
 #########################################
 # yasio (executável: 4,8mb com openssl e 2mb com mbedtls)
 #########################################
-set(YASIO_VERSION 3.39.11)
-set(YASIO_VERSION dev)
+# set(YASIO_VERSION 3.39.11)
+set(YASIO_VERSION test-mbedtls)
 
 CPMAddPackage(
   NAME yasio
@@ -43,8 +43,7 @@ CPMAddPackage(
 )
 
 add_executable(test main-yasio.cpp)
-target_link_libraries(test yasio yasio_http)
-target_link_libraries(test mbedtls)
+target_link_libraries(test yasio_http)
 
 if(IOS)
     set_target_properties(test PROPERTIES
