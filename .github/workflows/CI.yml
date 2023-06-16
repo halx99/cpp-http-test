@@ -23,7 +23,11 @@ jobs:
       with:
         python-version: '3.7.8'
     - name: build
-      run: ./build-ios.sh
+      run: |
+        python -V
+        # Install python3 extensions required by mbedtls-3.x 
+        pip install jsonschema jinja2
+        ./build-ios.sh
 
   watchos:
     runs-on: macos-latest
